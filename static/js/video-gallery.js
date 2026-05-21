@@ -229,14 +229,22 @@
       ], 'more-results-20s')
     },
     {
-      id: 'two-step-results',
-      title: '2-step Results',
-      note: 'All two-step generation videos are shown together.',
+      id: 'two-step-results-5s',
+      title: '2-step Results (5s)',
+      note: '5-second two-step AAD-1 generations.',
       type: 'grid',
       videos: shuffleItems([
-        ...makeGridVideos('static/videos/2step/5s/', STEP2_5S, '2 step / 5s'),
+        ...makeGridVideos('static/videos/2step/5s/', STEP2_5S, '2 step / 5s')
+      ], 'two-step-results-5s')
+    },
+    {
+      id: 'two-step-results-20s',
+      title: '2-step Results (20s)',
+      note: '20-second two-step AAD-1 generations.',
+      type: 'grid',
+      videos: shuffleItems([
         ...makeGridVideos('static/videos/2step/20s/', STEP2_20S, '2 step / 20s')
-      ], 'two-step-results')
+      ], 'two-step-results-20s')
     }
   ];
 
