@@ -183,14 +183,14 @@
     <div class="columns is-centered">
       <div class="column is-full">
         <h2 class="title is-3 has-text-centered">Training Pipeline</h2>
+        <figure class="training-pipeline-figure">
+          <img src="assets/training_pipeline.png" alt="AAD-1 training pipeline">
+        </figure>
         <div class="content has-text-justified">
           <p>
             AAD-1 trains a one-step autoregressive generator in three stages. Stage I adapts a pretrained bidirectional video model into a causal generator with ODE initialization. Stage II performs one-step DMD warmup under self-rollout training. Stage III applies asymmetric adversarial refinement, where a bidirectional discriminator uses full-video context for video-level discrimination while the generator remains causal for autoregressive sampling.
           </p>
         </div>
-        <figure class="training-pipeline-figure">
-          <img src="assets/training_pipeline.png" alt="AAD-1 training pipeline">
-        </figure>
       </div>
     </div>
   </div>
@@ -226,11 +226,12 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@misc{aad1,
+      <pre id="bibtex-code"><code>@inproceedings{li2026aad1,
   title={AAD-1: Asymmetric Adversarial Distillation for One-Step Autoregressive Video Generation},
   author={Haobo Li and Yanhong Zeng and Yunhong Lu and Jiapeng Zhu and Hao Ouyang and Qiuyu Wang and Ka Leong Cheng and Yujun Shen and Zhipeng Zhang},
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning},
   year={2026},
-  url={https://aad-1.github.io/}
+  note={To appear}
 }</code></pre>
     </div>
 </section>
