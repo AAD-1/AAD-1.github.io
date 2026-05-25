@@ -205,6 +205,25 @@ body {
   margin-right: 0.5rem;
 }
 
+.publication-authors .corresponding-email {
+  color: var(--text-secondary) !important;
+  display: inline-flex;
+  font-size: 0.62em;
+  line-height: 1;
+  margin-left: 0.08rem;
+  text-decoration: none;
+  transform: translateY(-0.08em);
+  vertical-align: super;
+}
+
+.publication-authors .corresponding-email::after {
+  display: none;
+}
+
+.publication-authors .corresponding-email:hover {
+  color: var(--primary-color) !important;
+}
+
 .publication-banner img {
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
