@@ -200,37 +200,9 @@ body {
     color: var(--primary-hover) !important;
 }
 
-.publication-authors .corresponding-email {
-  font-size: 0.7em;
-  margin-left: 0.12rem;
-  vertical-align: super;
-}
-
-.publication-authors .corresponding-email::after {
-  display: none;
-}
-
 .author-block {
   display: inline-block;
   margin-right: 0.5rem;
-}
-
-.publication-corresponding {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin: -0.75rem 0 1.25rem;
-}
-
-.publication-corresponding a {
-  color: var(--primary-color);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.publication-corresponding a:hover {
-  color: var(--primary-hover);
-  text-decoration: underline;
 }
 
 .publication-banner img {
