@@ -6,7 +6,7 @@
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="AAD-1: Asymmetric Adversarial Distillation for One-Step Autoregressive Video Generation">
-  <meta name="description" content="AAD-1 is a one-step autoregressive image-to-video framework built on a causal Wan backbone, with public inference code, checkpoints, and video results.">
+  <meta name="description" content="AAD-1 is a one-step autoregressive image-to-video framework built on a causal Wan backbone for long-horizon video-world-model rollouts.">
   <meta name="keywords" content="AAD-1, image-to-video, autoregressive video generation, causal Wan, asymmetric adversarial distillation, one-step generation">
   <meta name="author" content="Haobo Li, Yanhong Zeng, Yunhong Lu, Jiapeng Zhu, Hao Ouyang, Qiuyu Wang, Ka Leong Cheng, Yujun Shen, Zhipeng Zhang">
   <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="AAD-1">
   <meta property="og:title" content="AAD-1: Asymmetric Adversarial Distillation for One-Step Autoregressive Video Generation">
-  <meta property="og:description" content="AAD-1 is a one-step autoregressive image-to-video framework built on a causal Wan backbone, with public inference code, checkpoints, and video results.">
+  <meta property="og:description" content="AAD-1 is a one-step autoregressive image-to-video framework built on a causal Wan backbone for long-horizon video-world-model rollouts.">
   <meta property="og:url" content="https://aad-1.github.io/">
   <meta property="og:image" content="https://aad-1.github.io/assets/training_pipeline.png">
   <meta property="og:image:width" content="1846">
@@ -26,7 +26,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AAD-1: Asymmetric Adversarial Distillation for One-Step Autoregressive Video Generation">
-  <meta name="twitter:description" content="AAD-1 is a one-step autoregressive image-to-video framework built on a causal Wan backbone, with public inference code, checkpoints, and video results.">
+  <meta name="twitter:description" content="AAD-1 is a one-step autoregressive image-to-video framework built on a causal Wan backbone for long-horizon video-world-model rollouts.">
   <meta name="twitter:image" content="https://aad-1.github.io/assets/training_pipeline.png">
   <meta name="twitter:image:alt" content="AAD-1 training pipeline">
 
@@ -110,6 +110,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">AAD-1: Asymmetric Adversarial Distillation for One-Step Autoregressive Video Generation</h1>
+            <h2 class="subtitle is-4">ICML 2026</h2>
             <div class="is-size-5 publication-authors">
               <span class="author-block"><a href="https://aad-1.github.io/" target="_blank">Haobo Li</a><sup>1</sup>,</span>
               <span class="author-block"><a href="https://zengyh1900.github.io/" target="_blank" rel="noopener noreferrer">Yanhong Zeng</a><sup>2,<a class="corresponding-email" href="mailto:zengyh1900@gmail.com" title="Corresponding author: zengyh1900@gmail.com" aria-label="Corresponding author email for Yanhong Zeng"><i class="fas fa-envelope"></i></a></sup>,</span>
@@ -117,8 +118,8 @@
               <span class="author-block"><a href="https://aad-1.github.io/" target="_blank">Jiapeng Zhu</a><sup>2</sup>,</span>
               <span class="author-block"><a href="https://ken-ouyang.github.io/" target="_blank" rel="noopener noreferrer">Hao Ouyang</a><sup>2</sup>,</span>
               <span class="author-block"><a href="https://aad-1.github.io/" target="_blank">Qiuyu Wang</a><sup>2</sup>,</span>
-              <span class="author-block"><a href="https://aad-1.github.io/" target="_blank">Ka Leong Cheng</a><sup>2</sup>,</span>
-              <span class="author-block"><a href="https://aad-1.github.io/" target="_blank">Yujun Shen</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://felixcheng97.github.io/" target="_blank" rel="noopener noreferrer">Ka Leong Cheng</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://shenyujun.github.io/" target="_blank" rel="noopener noreferrer">Yujun Shen</a><sup>2</sup>,</span>
               <span class="author-block"><a href="https://zhipengzhang.cn/" target="_blank" rel="noopener noreferrer">Zhipeng Zhang</a><sup>1,<a class="corresponding-email" href="mailto:zhipeng.zhang.cv@outlook.com" title="Corresponding author: zhipeng.zhang.cv@outlook.com" aria-label="Corresponding author email for Zhipeng Zhang"><i class="fas fa-envelope"></i></a></sup></span>
             </div>
 
@@ -167,7 +168,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present <strong>AAD-1</strong>, an <strong>A</strong>symmetric <strong>A</strong>dversarial <strong>D</strong>istillation framework for <strong>O</strong>ne-step autoregressive image-to-video generation. State-of-the-art methods adopt adversarial distillation but suffer from motion collapse and training instability, resulting in static videos. AAD-1 addresses these challenges through two key designs in architecture and training strategy. Our key architectural insight is to break the symmetry between generator and discriminator. While the generator remains causal to preserve autoregressive sampling capability, the discriminator attends bidirectionally over the full spatiotemporal context and produces a single holistic realism score for the entire video sequence. This asymmetric design enables the discriminator to effectively detect global temporal failures and long-range drift that cause motion collapse in autoregressive generation. To stabilize training, we introduce a phased strategy that first uses distribution matching to bootstrap a stable one-step generator, providing a warm-up phase that brings the student distribution closer to the teacher before adversarial distillation begins. Extensive experiments on VBench demonstrate that AAD-1 achieves state-of-the-art performance in one-step autoregressive video generation.
+            We present <strong>AAD-1</strong>, a one-step autoregressive image-to-video framework for long-horizon video-world-model rollouts. Given a reference image and a text prompt, AAD-1 generates temporally consistent videos with one sampling step per causal chunk. It preserves the causal sampling behavior needed for autoregressive generation while improving motion fidelity over long horizons. Extensive experiments on VBench demonstrate state-of-the-art performance for one-step autoregressive video generation.
           </p>
         </div>
       </div>
@@ -188,7 +189,7 @@
         </figure>
         <div class="content has-text-justified">
           <p>
-            AAD-1 trains a one-step autoregressive generator in three stages. Stage I adapts a pretrained bidirectional video model into a causal generator with ODE initialization. Stage II performs one-step DMD warmup under self-rollout training. Stage III applies asymmetric adversarial refinement, where a bidirectional discriminator uses full-video context for video-level discrimination while the generator remains causal for autoregressive sampling.
+            AAD-1 trains a one-step autoregressive generator in three stages. Stage I adapts a pretrained bidirectional video model into a causal generator with ODE initialization. Stage II performs one-step DMD warmup under self-rollout training. Stage III applies asymmetric adversarial refinement: the generator remains causal, while a bidirectional video-level discriminator observes full-video context to penalize temporal drift and motion collapse.
           </p>
         </div>
       </div>
@@ -206,7 +207,7 @@
     <div class="container">
       <h2 class="title is-3">Video Results</h2>
       <div class="content video-gallery-desc">
-        This section collects all video results in a unified layout: SOTA comparisons, more AAD-1 results at 20s and 5s, and 2-step results split into separate 20s and 5s sections.
+        This section shows AAD-1 video results, including SOTA comparisons, 20s and 5s generations, and optional 2-step results.
       </div>
       <nav id="videoGalleryNav" class="video-gallery-nav" aria-label="Video result sections"></nav>
       <div id="videoGalleryRoot" class="video-gallery-root"></div>
