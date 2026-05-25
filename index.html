@@ -177,6 +177,27 @@
 <!-- End paper abstract -->
 
 
+<!-- Training pipeline -->
+<section class="section training-pipeline" id="training-pipeline">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Training Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            AAD-1 trains a one-step autoregressive generator in three stages. Stage I adapts a pretrained bidirectional video model into a causal generator with ODE initialization. Stage II performs one-step DMD warmup under self-rollout training. Stage III applies asymmetric adversarial refinement, where a bidirectional discriminator uses full-video context for video-level discrimination while the generator remains causal for autoregressive sampling.
+          </p>
+        </div>
+        <figure class="training-pipeline-figure">
+          <img src="assets/training_pipeline.png" alt="AAD-1 training pipeline">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End training pipeline -->
+
+
 
 
 <!-- Video Results -->

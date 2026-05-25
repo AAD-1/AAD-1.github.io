@@ -341,6 +341,27 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Training pipeline */
+.training-pipeline {
+  background: #fff;
+}
+
+.training-pipeline .content {
+  margin-bottom: 1.25rem;
+}
+
+.training-pipeline-figure {
+  margin: 0;
+}
+
+.training-pipeline-figure img {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 /* Unified video gallery */
 .video-gallery {
   background: var(--background-primary);
