@@ -209,16 +209,6 @@
       ], 'sota-comparison')
     },
     {
-      id: 'more-results-5s',
-      title: 'More Results (5s)',
-      note: '5-second one-step AAD-1 generations and additional AAD-1 examples.',
-      type: 'grid',
-      videos: shuffleItems([
-        ...makeGridVideos('1step-5s/', ONE_STEP_5S, '1 step / 5s'),
-        ...makeGridVideos('static/videos/supplementary/', ADDITIONAL_AAD_FILES_5S, 'AAD-1 / 5s')
-      ], 'more-results-5s')
-    },
-    {
       id: 'more-results-20s',
       title: 'More Results (20s)',
       note: '20-second one-step AAD-1 generations and additional AAD-1 examples.',
@@ -229,13 +219,14 @@
       ], 'more-results-20s')
     },
     {
-      id: 'two-step-results-5s',
-      title: '2-step Results (5s)',
-      note: '5-second two-step AAD-1 generations.',
+      id: 'more-results-5s',
+      title: 'More Results (5s)',
+      note: '5-second one-step AAD-1 generations and additional AAD-1 examples.',
       type: 'grid',
       videos: shuffleItems([
-        ...makeGridVideos('static/videos/2step/5s/', STEP2_5S, '2 step / 5s')
-      ], 'two-step-results-5s')
+        ...makeGridVideos('1step-5s/', ONE_STEP_5S, '1 step / 5s'),
+        ...makeGridVideos('static/videos/supplementary/', ADDITIONAL_AAD_FILES_5S, 'AAD-1 / 5s')
+      ], 'more-results-5s')
     },
     {
       id: 'two-step-results-20s',
@@ -245,6 +236,15 @@
       videos: shuffleItems([
         ...makeGridVideos('static/videos/2step/20s/', STEP2_20S, '2 step / 20s')
       ], 'two-step-results-20s')
+    },
+    {
+      id: 'two-step-results-5s',
+      title: '2-step Results (5s)',
+      note: '5-second two-step AAD-1 generations.',
+      type: 'grid',
+      videos: shuffleItems([
+        ...makeGridVideos('static/videos/2step/5s/', STEP2_5S, '2 step / 5s')
+      ], 'two-step-results-5s')
     }
   ];
 
@@ -327,16 +327,58 @@
       const card = createElement('article', 'video-compare-card');
       const head = createElement('div', 'video-compare-head');
       head.appendChild(createElement('span', '', `#${index + 1}`));
-      head.appendChild(createElement('span', 'video-badge', `${section.columns.length} views`));
+      const headActions = createElement('div', 'video-compare-actions');
+      headActions.appendChild(createElement('span', 'video-badge', `${section.columns.length} views`));
+      const playAllButton = createElement('button', 'video-play-all-btn', 'Play all');
+      playAllButton.type = 'button';
+      playAllButton.setAttribute('aria-label', `Play all comparison videos for result ${index + 1}`);
+      headActions.appendChild(playAllButton);
+      head.appendChild(headActions);
       card.appendChild(head);
       card.appendChild(createPrompt(item.prompt));
 
       const grid = createElement('div', 'video-compare-grid');
+      const videos = [];
       section.columns.forEach(column => {
         const col = createElement('div', 'video-compare-col');
         col.appendChild(createElement('div', 'video-col-head', column.label));
-        col.appendChild(createVideo(item.files[column.key], `${item.prompt} - ${column.label}`));
+        const video = createVideo(item.files[column.key], `${item.prompt} - ${column.label}`);
+        videos.push(video);
+        col.appendChild(video);
         grid.appendChild(col);
+      });
+
+      playAllButton.addEventListener('click', async () => {
+        const allPlaying = videos.every(video => !video.paused && !video.ended);
+        if (allPlaying) {
+          videos.forEach(video => video.pause());
+          playAllButton.textContent = 'Play all';
+          playAllButton.setAttribute('aria-label', `Play all comparison videos for result ${index + 1}`);
+          return;
+        }
+
+        videos.forEach(video => {
+          video.currentTime = 0;
+          video.muted = true;
+        });
+        await Promise.allSettled(videos.map(video => video.play()));
+        playAllButton.textContent = 'Pause all';
+        playAllButton.setAttribute('aria-label', `Pause all comparison videos for result ${index + 1}`);
+      });
+
+      videos.forEach(video => {
+        video.addEventListener('pause', () => {
+          if (videos.every(item => item.paused || item.ended)) {
+            playAllButton.textContent = 'Play all';
+            playAllButton.setAttribute('aria-label', `Play all comparison videos for result ${index + 1}`);
+          }
+        });
+        video.addEventListener('ended', () => {
+          if (videos.every(item => item.paused || item.ended)) {
+            playAllButton.textContent = 'Play all';
+            playAllButton.setAttribute('aria-label', `Play all comparison videos for result ${index + 1}`);
+          }
+        });
       });
 
       card.appendChild(grid);

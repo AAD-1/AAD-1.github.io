@@ -454,6 +454,32 @@ body {
   font-weight: 700;
 }
 
+.video-compare-actions {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 0.75rem;
+}
+
+.video-play-all-btn {
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  min-width: 72px;
+  padding: 5px 10px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.video-play-all-btn:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
 .video-prompt-wrap {
   margin-bottom: 0.75rem;
 }
@@ -531,6 +557,10 @@ body {
 
   .video-gallery-desc {
     text-align: left;
+  }
+
+  .video-compare-head {
+    align-items: flex-start;
   }
 }
 
