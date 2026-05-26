@@ -194,6 +194,26 @@
 
   const VIDEO_SECTIONS = [
     {
+      id: 'more-results-20s',
+      title: 'One-Step Long-Horizon Video Generation (20s)',
+      note: '20-second one-step AAD-1 generations for long-horizon video generation.',
+      type: 'grid',
+      videos: shuffleItems([
+        ...makeGridVideos('1step-20s/', ONE_STEP_20S, '1 step / 20s'),
+        ...makeGridVideos('static/videos/supplementary/', ADDITIONAL_AAD_FILES_20S, 'AAD-1 / 20s')
+      ], 'more-results-20s')
+    },
+    {
+      id: 'more-results-5s',
+      title: 'One-Step Short-Horizon Video Generation (5s)',
+      note: '5-second one-step AAD-1 generations for short-horizon video generation.',
+      type: 'grid',
+      videos: shuffleItems([
+        ...makeGridVideos('1step-5s/', ONE_STEP_5S, '1 step / 5s'),
+        ...makeGridVideos('static/videos/supplementary/', ADDITIONAL_AAD_FILES_5S, 'AAD-1 / 5s')
+      ], 'more-results-5s')
+    },
+    {
       id: 'sota-comparison',
       title: 'Benchmark',
       note: 'All AAD-1 (1 NFE), Self-Forcing (4 NFE), and CausVid (4 NFE) comparison videos are shown together.',
@@ -207,26 +227,6 @@
         ...COMP_PROMPTS.map(makeCompItem),
         ...SOTA_COMPARISON_FILES.map(makeSotaItem)
       ], 'sota-comparison')
-    },
-    {
-      id: 'more-results-20s',
-      title: 'More Results (20s)',
-      note: '20-second one-step AAD-1 generations and additional AAD-1 examples.',
-      type: 'grid',
-      videos: shuffleItems([
-        ...makeGridVideos('1step-20s/', ONE_STEP_20S, '1 step / 20s'),
-        ...makeGridVideos('static/videos/supplementary/', ADDITIONAL_AAD_FILES_20S, 'AAD-1 / 20s')
-      ], 'more-results-20s')
-    },
-    {
-      id: 'more-results-5s',
-      title: 'More Results (5s)',
-      note: '5-second one-step AAD-1 generations and additional AAD-1 examples.',
-      type: 'grid',
-      videos: shuffleItems([
-        ...makeGridVideos('1step-5s/', ONE_STEP_5S, '1 step / 5s'),
-        ...makeGridVideos('static/videos/supplementary/', ADDITIONAL_AAD_FILES_5S, 'AAD-1 / 5s')
-      ], 'more-results-5s')
     },
     {
       id: 'two-step-results-20s',
