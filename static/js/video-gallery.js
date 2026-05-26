@@ -230,8 +230,8 @@
     },
     {
       id: 'two-step-results-20s',
-      title: '2-step Results (20s)',
-      note: '20-second two-step AAD-1 generations.',
+      title: 'Two-Step Long-Horizon Video Generation (20s)',
+      note: '20-second two-step AAD-1 generations for long-horizon video generation.',
       type: 'grid',
       videos: shuffleItems([
         ...makeGridVideos('static/videos/2step/20s/', STEP2_20S, '2 step / 20s')
@@ -239,8 +239,8 @@
     },
     {
       id: 'two-step-results-5s',
-      title: '2-step Results (5s)',
-      note: '5-second two-step AAD-1 generations.',
+      title: 'Two-Step Short-Horizon Video Generation (5s)',
+      note: '5-second two-step AAD-1 generations for short-horizon video generation.',
       type: 'grid',
       videos: shuffleItems([
         ...makeGridVideos('static/videos/2step/5s/', STEP2_5S, '2 step / 5s')
