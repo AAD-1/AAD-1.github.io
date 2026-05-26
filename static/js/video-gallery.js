@@ -195,13 +195,13 @@
   const VIDEO_SECTIONS = [
     {
       id: 'sota-comparison',
-      title: 'SOTA Comparison',
-      note: 'All AAD-1, Self-Forcing, and CausVid comparison videos are shown together.',
+      title: 'Benchmark',
+      note: 'All AAD-1 (1 NFE), Self-Forcing (4 NFE), and CausVid (4 NFE) comparison videos are shown together.',
       type: 'comparison',
       columns: [
-        { key: 'aad', label: 'AAD-1' },
-        { key: 'sf', label: 'Self-Forcing' },
-        { key: 'causvid', label: 'CausVid' }
+        { key: 'aad', label: 'AAD-1 (1 NFE)' },
+        { key: 'sf', label: 'Self-Forcing (4 NFE)' },
+        { key: 'causvid', label: 'CausVid (4 NFE)' }
       ],
       items: shuffleItems([
         ...COMP_PROMPTS.map(makeCompItem),
